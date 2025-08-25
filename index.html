@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Liore Verse</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Parisienne&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #e0e0e9, #e5e5eb, #c5c5ee);
+            background-size: 400% 400%;
+            animation: gradient 20s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow-x: hidden;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('WhatsApp Image 2025-08-18 at 21.37.22_119c878d.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(6px) brightness(0.6);
+            z-index: -2;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(79, 12, 12, 0.7), rgba(139, 125, 182, 0));
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1400px;
+            width: 95%;
+            padding: 2rem;
+            z-index: 1;
+        }
+
+        .header-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 4rem;
+            margin-bottom: 4rem;
+            width: 100%;
+        }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            min-width: 300px;
+            max-width: 400px;
+            animation: fadeInLeft 1.5s ease-out forwards;
+            opacity: 0;
+        }
+
+        .logo-wrapper {
+            position: relative;
+            width: 220px;
+            height: 220px;
+            margin-bottom: 1.5rem;
+        }
+
+        .logo-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #4F0C0C, #FFF2E2);
+            border-radius: 50%;
+            animation: pulse 4s infinite ease-in-out;
+            box-shadow: 0 0 50px rgba(255, 242, 226, 0.4);
+        }
+
+        .logo-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            transform: scale(0.95);
+            transition: all 0.5s ease;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: 0 0 50px rgba(255, 242, 226, 0.6);
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 900;
+            color: transparent;
+            background: linear-gradient(to right, #FFF2E2, #f3d8d8, #FFF2E2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(255, 242, 226, 0.5);
+            animation: glow 3s infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px rgba(255, 242, 226, 0.5); }
+            to { text-shadow: 0 0 30px rgba(255, 242, 226, 0.8), 0 0 40px rgba(255, 242, 226, 0.6); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .welcome-container {
+            flex: 1;
+            min-width: 300px;
+            max-width: 600px;
+            animation: fadeInRight 1.5s ease-out 0.3s forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .welcome-text {
+            font-family: 'Parisienne', cursive;
+            font-size: 4.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            line-height: 1.1;
+            background: linear-gradient(to right, #FFF2E2, #f3d8d8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 2px;
+        }
+
+        .tagline {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            color: #f3d8d8;
+            font-style: italic;
+        }
+
+        .content-section {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            animation: fadeInUp 1.5s ease-out 0.8s forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .description {
+            font-size: 1.3rem;
+            line-height: 1.7;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2.5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+            margin-bottom: 2.5rem;
+            border: 1px solid rgba(255, 242, 226, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .description::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #4F0C0C, #FFF2E2);
+        }
+
+        .highlight {
+            color: #f3d8d8;
+            font-weight: 600;
+            font-size: 1.5rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .era-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: #FFF2E2;
+            font-weight: 700;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .feature {
+            background: rgba(255, 242, 226, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            width: 250px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 242, 226, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 242, 226, 0.15);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #f3d8d8;
+        }
+
+        .feature h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #FFF2E2;
+        }
+
+        .cta-section {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 1.2rem 2.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: white;
+            background: linear-gradient(to right, #4F0C0C, #7a1c1c);
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite 2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid #FFF2E2;
+            color: #FFF2E2;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-button i {
+            margin-left: 0.5rem;
+        }
+
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle linear infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+
+        .footer {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 1100px) {
+            .header-section {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+            
+            .welcome-container {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .logo-text { font-size: 3.5rem; }
+            .welcome-text { font-size: 3.8rem; }
+            .tagline { font-size: 1.5rem; }
+            .description { font-size: 1.1rem; padding: 1.8rem; }
+            .logo-wrapper {
+                width: 180px;
+                height: 180px;
+            }
+            .era-title { font-size: 1.9rem; }
+        }
+
+        @media (max-width: 480px) {
+            .logo-text { font-size: 2.8rem; }
+            .welcome-text { font-size: 3rem; }
+            .tagline { font-size: 1.2rem; }
+            .description { padding: 1.4rem; }
+            .cta-button { padding: 1rem 2rem; font-size: 1rem; }
+            .logo-wrapper {
+                width: 150px;
+                height: 150px;
+            }
+            .era-title { font-size: 1.7rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-image"></div>
+    <div class="overlay"></div>
+    <div class="stars" id="stars"></div>
+    
+    <div class="container">
+        <div class="header-section">
+            <div class="logo-container">
+                <div class="logo-wrapper">
+                    <div class="logo-bg"></div>
+                    <img src="WhatsApp-image_20250824_170357.png" alt="Liore Verse Logo" class="logo-img">
+                </div>
+                <h1 class="logo-text">LIORE</h1>
+            </div>
+            
+            <div class="welcome-container">
+                <h1 class="welcome-text">Welcome to Liore Verse</h1>
+                <p class="tagline">Where Vision Meets Reality</p>
+            </div>
+        </div>
+        
+        <div class="content-section">
+            <div class="description">
+                <span class="highlight">NO RISK NO STORY</span>
+                <h2 class="era-title">THE FOUNDER'S ERA</h2>
+                <p>Before the brand. Before the recognition. There was the vision. The Founder's Era is a tribute to the early days, the long nights, and the quiet confidence that it would all work out. It's built with vintage soul, for those who remember why they started.</p>
+            </div>
+            
+    
+            
+            <div class="cta-section">
+                <a href="indexx.html" class="cta-button">GET STARTED <i class="fas fa-arrow-right"></i></a>
+                <a href="#learn-more" class="cta-button secondary">LEARN MORE <i class="fas fa-book-open"></i></a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2023 LIORE VERSE. All rights reserved. | The Founder's Era</p>
+        </div>
+    </div>
+
+    <script>
+        // Create twinkling stars
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const starsCount = 150;
+            
+            for (let i = 0; i < starsCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                const size = Math.random() * 3;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                
+                star.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                star.style.animationDelay = `${Math.random() * 2}s`;
+                
+                starsContainer.appendChild(star);
+            }
+        }
+        
+        // Add some interactive effects to the logo
+        const logo = document.querySelector('.logo-img');
+        if (logo) {
+            logo.addEventListener('mouseover', function() {
+                this.style.transform = 'scale(1.05) rotate(5deg)';
+            });
+            
+            logo.addEventListener('mouseout', function() {
+                this.style.transform = 'scale(0.95)';
+            });
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            createStars();
+        };
+    </script>
+</body>
+</html>
